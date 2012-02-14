@@ -8,6 +8,10 @@ import socks
 import os
 import time
 import random
+try:
+    from ssl import wrap_socket # ninja SSL import bitches!
+except:
+    wrap_socket = socket.ssl
 
 
 useragents = [
@@ -121,6 +125,9 @@ class http_drone:
             return
         
         self.sckt = s
+
+#                  if self.options['ssl'] ==  True: # THIS BIT HANDLES SSL
+#                        wrap_socket(s)             # well, I hope it WILL...
         
         threading.Thread(target=self.conn, args=()).start()
 
